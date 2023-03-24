@@ -1,5 +1,6 @@
 import React from "react";
 import api from './api';
+import ListFilmes from "./listFilmes";
 
 function Filmes(){
     
@@ -16,18 +17,7 @@ function Filmes(){
                 <h1 className="title">Filmes</h1>
                 <input className="pesqBar" type="text" placeholder="Digite o Nome do Filme" onChange={(e) => setPesquisa(e.target.value)}></input>
                 <button onClick={componentDidMount}>Pesquisar</button>
-              {filmes && filmes.map((filme) => (
-                <div className="list"  key={filme.show.id}>
-                <li className="itemList">
-                    <h3>
-                        <strong>Titulo: </strong>
-                        {filme.show.name}
-                    </h3>
-                    <p><strong>Nota: </strong>{filme.show.rating.average? filme.show.rating.average : 'Não encontrado'}</p>
-                    <p><strong>URL: </strong>{filme.show.url}</p>
-                </li>
-                </div>
-              ))}
+                <ListFilmes filmes={filmes}/>
             </div>
         );
                 
